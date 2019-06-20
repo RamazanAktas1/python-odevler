@@ -1,0 +1,164 @@
+
+************************** 1.sekilli yazi **********************************
+
+print("""
+      ********************
+    * ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ *
+  *    Sekilli Yazi Yazmak   *
+*          sürüm 0.1           *
+  *         (nsr.py)         *
+    * ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ *
+      ********************
+""")
+
+
+tutulan_takim = input("Lütfen Tuttugunuz Takimi Buyuk Harfler ile Yaziniz :")
+print(" "*10+"*"*18+" "*10,"\n",
+      " "*8+"*"*2+" "*18+"*"*2,"\n",
+      " "*6+"*"*2+" "*22+"*"*2,"\n",
+      " "*4+"*"*2+" "*26+"*"*2,"\n",
+      " "*2+"*"*2+" "*30+"*"*2,"\n",
+      "*"*2+" "*34+"*"*2,"\n",
+      " "*13,tutulan_takım," "*13,"\n",
+      " "*13,"_"*len(tutulan_takım),"\n",
+      "*"*2+" "*34+"*"*2,"\n",
+      " "*2+"*"*2+" "*30+"*"*2,"\n",
+      " "*4+"*"*2+" "*26+"*"*2,"\n",
+      " "*6+"*"*2+" "*22+"*"*2,"\n",
+      " "*8+"*"*2+" "*18+"*"*2,"\n",
+      " "*10+"*"*18+" "*10,"\n",sep="")
+
+
+
+***************************  2. soru (km- mil dönüsüm) ********************
+
+
+print("""
+      ####################
+    #                      #
+  #      Km Mil Dönüsüm      #
+#          sürüm 0.1           #
+  #         (nsr.py)         #
+    #                      #
+      ####################
+
+""")
+
+yol = float(input("Gidilen mesafeyi Km cinsinden yaziniz\t:\t"))
+yolMil = yol * 0.6214
+print(yol,"km",int(yolMil*100)/100,"mil eder.")
+
+
+*************************** 3.soru Not hesaplama ************************
+
+print("""
+##########################
+# Ögrenci Not Hessaplama #
+#      sürüm 0.1         #
+#        (nsr)           #
+##########################
+""")
+print("*** Notunuzu hesaplamak içn bilgilerinizi dogru bir sekilde giriniz ***")
+ad            = input("Adinizi giriniz \t:")
+soyad         = input("Soyadinizi giriniz  :")
+vizeNot       = float(input("0 ile 100 arasindki Vize puanini giriniz  :"))
+finalNot      = float(input("0 ile 100 arasindki Final puanini giriniz :"))
+kacirilanDers = float(input("Kacirdiginiz ders miktarini giriniz       :"))
+
+dersTakipPuani = 100 - (kacirilanDers*5)
+
+yilSonuPuani = vizeNot*30/100 +finalNot*50/100 + dersTakipPuani*20/100
+print("-"*50)
+print("Yilsonu puani : ",yilSonuPuani)
+print("-"*50)
+dosya = open("ÖgrenciNotHesaplama.txt","w")
+print("Ad               :",ad,"\n",
+      "Soyad            :",soyad,"\n",
+      "Vize puani       :",vizeNot,"\n",
+      "Final puani      :",finalNot,"\n",
+      "Ders takip puani :",dersTakipPuani,"\n",
+      sep="",file=dosya)
+dosya.close()
+
+********************************* 4.Soru Faiz Hesaplama ***********************
+
+print("""
+###########################
+# Faiz hesaplama programi #
+#      sürüm 0.1          #
+#       (nsr.py)          #
+###########################
+""")
+print("*** Faiz miktarini hesaplamak için bilgileri dogru bir sekilde giriniz ***")
+
+anaPara    = float(input("Faize yatirmak istediginiz toplam para miktarini giriniz :"))
+faizSuresi = float(input("Yil olarak toplam süreyi giriniz :"))
+faizOrani  = float(input("Faiz oranini giriniz :"))
+
+# yillik faiz orani = Ana para x faiz suresi x faiz orani / 100
+
+yillikFaizMiktari = (anaPara * faizSuresi * faizOrani) / 100
+aylikFaizMiktari  = (anaPara * faizSuresi * faizOrani) / 1200
+gunlukFaizMiktari = (anaPara * faizSuresi * faizOrani) / 36000
+toplamParaMiktari = anaPara + yillikFaizMiktari
+
+print("Yillik Faiz Miktariniz :",yillikFaizMiktari)
+print("Aylik Faiz Miktariniz  :",aylikFaizMiktari)
+print("Günlük Faiz Miktariniz :",gunlukFaizMiktari)
+
+print("Toplam Para Miktariniz : ",toplamParaMiktari)
+
+
+dosya = open ("faizHesaplama.txt","w")
+print("Ana Para       :",anaPara,"\n",
+      "faiz miktari   :",yillikFaizMiktari,"\n",
+      "Toplam paraniz :",toplamParaMiktari,"\n",
+      sep="",file=dosya)
+dosya.close()
+
+*************************** 5. Soru Aylik Masraf hesaplama *********************
+
+print("""
+############################
+#  Aylik Masraf hesaplama  #
+#        sürüm 0.1         #
+#         (nsr.py)         #
+############################
+""")
+aylikGelir    = float(input("Aylik Gelirinizi Giriniz    :"))
+print("-"*50)
+mutfakMasrafi = float(input("Mutfak Masraflaini Giriniz  :"))
+egitimMasrafi = float(input("Egitim masraflarini giriniz :"))
+giyimMasrafi  = float(input("Giyim Masraflarini giriniz  :"))
+ulasimMasrafi = float(input("Ulasim Masraflarini Giriniz :"))
+print("-"*50)
+aylikToplamMasraf = mutfakMasrafi + egitimMasrafi + giyimMasrafi + ulasimMasrafi
+
+print("Toplam Aylik Masraf : ",aylikToplamMasraf)
+print("-"*50)
+print("Aylik Masrafin Gelire Orani :",aylikToplamMasraf/aylikGelir)
+print("-"*50)
+dosya = open("Aylik masraf.txt","w")
+print("Toplam Aylik Masraf         :",aylikToplamMasraf,"\n"
+      "Aylik Masrafin Gelire Orani :",aylikToplamMasraf/aylikGelir,"\n"
+      ,file=dosya)
+dosya.close()
+
+
+**************************** 6.Soru üç farkli Print ****************************
+
+print("""
+############################
+#     Üç Farkli Print      #
+#         sürüm 0.1        #
+#           (nsr)          #
+############################
+""")
+
+python_kurucusu ="""Python’un kurucusu Guido Van Rossum,Hollanda’nin Amsterdam’daki  "Universiteit Van Amsterdam" okulundan  1982’de mezun olmustur."""
+
+print(python_kurucusu)
+
+print("""Python’un kurucusu Guido Van Rossum,Hollanda’nin Amsterdam’daki  "Universiteit Van Amsterdam" okulundan  1982’de mezun olmustur.""")
+
+print("{}".format(python_kurucusu))
