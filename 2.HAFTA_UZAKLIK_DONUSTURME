@@ -1,0 +1,26 @@
+print("""
+############################
+#    km mil donusumleri    #
+#         surum 0.1        #
+############################
+""")
+
+print("""
+***************# islemler #********************   
+* 1-km'yi mil 'e donusturmek                  *
+* 2-mil'i km 'ye donusturmek                  *
+***********************************************
+""")
+islem =input("lutfen yapmak istediginiz islemi seciniz(orn: 1 or 2)!!!:")
+
+if islem =="1":
+    uzunluk = float(input("Lutfen km cinsinden uzunlugu giriniz\t:\t"))
+    mil_uzunluk = uzunluk * 0.6214    # 1 mil = 1 km * 0.6214
+    print(uzunluk," km"," =",round(mil_uzunluk,3)," mil")
+
+
+elif islem=="2":
+    uzunluk = float(input("Lutfen mil cinsinden uzunlugu giriniz\t:\t"))
+
+    km_uzunluk = uzunluk / 0.6214       # 1 km =1 mil/0.6214
+    print(uzunluk, " mil", " =", round(km_uzunluk,3), " km")
