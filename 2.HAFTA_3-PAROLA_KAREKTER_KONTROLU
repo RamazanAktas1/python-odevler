@@ -1,0 +1,35 @@
+print("""
+############################
+#    USERNAME ve PAROLA    #
+#         surum 0.1        #
+############################
+""")
+
+username = input("3-18 karekterler arasinda bir username olusturunuz\t\t:\t")
+
+if bool(username) == True:
+    if "1" in username or "2" in username or "3" in username or"4" in username or "5" \
+        in username or "6" in username or "7" in username or "8" in username or "9" in username or "0" in username:
+        print("!!! UYARI !!! username olustururken rakam kullanamazsiniz")
+    else:
+        if 3 > len(username) or len(username) > 18:
+            print("!!! UYARI !!!..Lutfen '3-18' karekter arasida bir username olusturunuz")
+        else:
+            parola = input("Lutfen '6-12' karekter arasinda bir parola olusturunuz\t:\t")
+
+            if bool(parola) == True:
+                if 6 < len(parola) < 12:
+                    print("Olusturmus oldugunuz kullanici adi :", username)
+                    print("Olusturmus oldugunuz parola :", parola)
+                    print("Basarili bir sekilde Parola ve username olusturulmustur....Iyi gunler...")
+                else:
+                    print("uyari parola 6-12  karekter arasinda olmali")
+            else:
+                print("you can not enter null")
+else:
+    print("you can not enter null")
+
+dosya = open("username_parola.txt","w")
+print("Olusturmus oldugunuz kullanici adi :", username,"\n"
+      "Olusturmus oldugunuz parola        :", parola,file=dosya)
+dosya.close()
