@@ -1,0 +1,32 @@
+print("""
+############################
+#      NOT HESAPLAMA       #
+#        surum 0.1         #
+############################
+""")
+
+vize1 = input("Lutfen vize1 notunuzu giriniz\t:\t")
+vize2 = input("Lutfen vize2 notunuzu giriniz\t:\t")
+final = input("Lutfen final notunuzu giriniz\t:\t")
+
+note = float(vize1) * 0.3 + float(vize2) * 0.3 + float(final) * 0.4
+
+if note >= 90:
+    print("Not ortalamaniz :",note,"Notunuz\t:\t","AA")
+
+elif note >= 85:
+    print("Not ortalamaniz :",note,"Notunuz\t:\t", "BA")
+elif note >= 80:
+    print("Not ortalamaniz :",note,"Notunuz\t:\t", "BB")
+elif note >= 75:
+    print("Not ortalamaniz :",note,"Notunuz\t:\t", "CB")
+elif note >= 70:
+    print("Not ortalamaniz :",note,"Notunuz\t:\t", "CC")
+elif note >= 65:
+    print("Not ortalamaniz :",note,"Notunuz\t:\t", "DC")
+elif note >= 60:
+    print("Not ortalamaniz :",note,"Notunuz\t:\t", "DD")
+elif note >= 55:
+    print("Not ortalamaniz :",note,"Notunuz\t:\t", "FD")
+elif note < 55:
+    print("Not ortalamaniz :",note,"Notunuz\t:\t", "FF")
