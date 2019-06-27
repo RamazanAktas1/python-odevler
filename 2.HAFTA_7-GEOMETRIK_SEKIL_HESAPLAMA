@@ -1,0 +1,41 @@
+print("B.")
+
+print("""
+B.############################
+#    UCGEN MI? DORTGEN MI?   #
+#          surum 0.1         #
+##############################
+""")
+
+cevap = input("dortgen mi,ucgen mi bulmak istiyorsun....ucgen icin '1'....dortgen icin '2'.... giriniz\t:")
+
+ucgen=1
+dortgen=2
+
+if cevap == "1":
+    print("ucgen icin 3 kenar giriniz :\t")
+    k1 = float(input("1. kenari gir\t:"))
+    k2 = float(input("2. kenari gir\t:"))
+    k3 = float(input("3. kenari gir\t:"))
+    if abs(k1 - k2) < k3 < (k1 + k2) or abs(k1 - k3) < k2 < (k1 + k3) or abs(k3 - k2) < k1 < (k3 + k2):
+        if k1 == k2 != k3 or k1 == k3 != k2 or k2 == k3 != k1:
+            print("ikizkenar ucgen")
+        elif k1 == k2 == k3:
+            print("eskenar ucgen")
+        elif k1 != k2 != k3:
+            print("siradan ucgen")
+    else:
+        print("Girmis oldugunuz uzunluk olculerinden ucgen olusmadi")
+elif cevap == "2":
+    print("dortgen icin 4 kenar giriniz\t:")
+    k1 = float(input("1. kenari gir\t:"))
+    k2 = float(input("2. kenari gir\t:"))
+    k3 = float(input("3. kenari gir\t:"))
+    k4 = float(input("4. kenari gir\t:"))
+
+    if k1==k2==k3==k4:
+        print("kare")
+    elif (k1==k2 and k3==k4) or (k1==k3 and k2==k4)or (k1==k4 and k2==k3):
+        print("dikdortgen")
+    elif k1!=k2!=k3!=k4:
+        print("cesitkenar dortgen")
