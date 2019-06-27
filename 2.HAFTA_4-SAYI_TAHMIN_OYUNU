@@ -1,0 +1,47 @@
+print("""
+############################
+#    SAYI TAHMIN OYUNU     #
+#        surum 0.1         #
+############################
+""")
+
+sayi =5
+print("sayi tahmin oyunu")
+print("1-10 arasinda tutulan sayiyi bulmaya calisin.")
+
+t_sayi = input("1. deneme....Lutfen 1-10 arasinda bir sayi giriniz...:")
+if bool(t_sayi)==True:
+    t_sayi=int(t_sayi)
+    if t_sayi == sayi:
+        print("1.denemede bildiniz tebrikler","\u2605"*3)
+
+    elif t_sayi != sayi:
+        print("Bilemediniz....Lutfen tekrar deneyiniz...")
+        t_sayi = int(input("2.Deneme.....1-10 arasinda bir sayi giriniz:"))
+
+        if t_sayi == sayi:
+            print("2.de bildiniz tebrikler","\u2605"*3)
+
+        elif t_sayi != sayi:
+            print("Bilemediniz....Lutfen tekrar deneyiniz...")
+            t_sayi = int(input("3.Deneme.....1-10 arasinda bir sayi giriniz:"))
+
+            if t_sayi == sayi:
+                print("3.de bildiniz tebrikler","\u2605"*2)
+
+            elif t_sayi != sayi:
+                print("Bilemediniz....Lutfen tekrar deneyiniz...")
+                t_sayi = int(input("4.Deneme.....1-10 arasinda bir sayi giriniz:"))
+
+                if t_sayi == sayi:
+                    print("4.de bildiniz tebrikler","\u2605"*2)
+
+                elif t_sayi != sayi:
+                    print("Bilemediniz....Lutfen tekrar deneyiniz...")
+                    t_sayi = int(input("5.Deneme.....1-10 arasinda bir sayi giriniz:"))
+                    if t_sayi == sayi:
+                        print("5.de bildiniz tebrikler","\u2605")
+                    else:
+                        print("sen bu oyunu birak.....sansini baska oyunlarda dene")
+else:
+    print("!!! UYARI !!!...Lutfen bir sayi giriniz..." )
