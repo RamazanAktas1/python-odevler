@@ -1,0 +1,54 @@
+
+print("B.")
+print("""
+############################
+#          BURCLAR         #
+#         surum 0.1        #
+############################
+""")
+
+day = input("Please enter the date of birth day (orn : 1,17,30... \t:\t ")
+month = input("Please enter your month of birth  (orn : January,February...)\t:\t")
+
+if bool(day) == True and bool(month) == True:
+    day = int(day)
+
+    if (21 <= day <= 31 and month == "march")or 1 <= day <= 20 and month == "april":
+        print("your horoscope : Aries")                 # Aries : 21 March - 20 April
+
+    elif 21 <= day <= 30 and month == "april" or 1 <= day <= 21 and month == "may":
+
+        print("your horoscope : Taurus")                # Taurus : 21 April - 21 May
+
+    elif 22 <= day <= 31 and month == "may"or 1 <= day <= 22 and month == "juni":
+
+        print("your horoscope : Gemini")                # Gemini : 22 May - 22 Juni
+
+    elif 23 <= day <= 30 and month == "juni"or 1 <= day <= 22 and month == "july":
+        print("your horoscope : Cancer")                # Cancer : 23 Juni - 22 July
+
+    elif 23 <= day <= 31 and month == "july" or 1 <= day <= 22 and month == "august":
+        print("your horoscope : Leo")                   # Leo : 23 July - 22 August
+
+    elif 23 <= day <= 31 and month == "august" or 1 <= day <= 22 and month == "september":
+        print("your horoscope : Virgo")                 # Virgo : 23 August - 22 September
+
+    elif 23 <= day <= 30 and month == "september" or 1 <= day <= 22 and month == "october" :
+        print("your horoscope : Libra")                 # Libra : 23 September - 22 October
+
+    elif 23 <= day <= 31 and month == "october" or 1 <= day <= 21 and month == "november" :
+        print("your horoscope : Scorpio")               # Scorpio : 23 October - 21 November
+
+    elif 22 <= day <= 30 and month == "november" or 1 <= day <= 20 and month == "december":
+        print("your horoscope : Sagittarius")           # Sagittarius : 22 November - 21 December
+
+    elif 21 <= day <= 31 and month == "december" or 1 <= day <= 21 and month == "january":
+        print("your horoscope : Capricorn")             # Capricorn : 22 December - 21 January
+
+    elif 22 <= day <= 31 and month == "january" or 1 <= day <= 19 and month == "february":
+        print("your horoscope : Aquarius")              # Aquarius : 22 January - 19 February
+
+    elif 20 <= day <= 28 and month == "february" or 1 <= day <= 20 and month == "march":
+        print("your horoscope : Pisces")                # Pisces : 20 February - 20 March
+else:
+    print("you can not enter null")
