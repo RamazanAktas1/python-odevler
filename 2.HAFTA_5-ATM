@@ -1,0 +1,38 @@
+print("""
+############################
+#            ATM           #
+#         surum 0.1        #
+############################
+""")
+print("""
+    ############
+    # islemler #
+    ############
+**********************    
+* 1-Bakiye kopntrolu *
+* 2-para yatirma     *
+* 3-Para cekme       *
+**********************
+""")
+hesap = 1000
+islem = int(input("Lutfen yapmak ist islemi seciniz\t:\t"))
+
+if islem == 1:
+    print("Bakiyeniz :",hesap,format("Euro"))
+
+elif islem == 2:
+    yatirilan_para = 0
+    yatirilan_para = int(input("lutfen yatirmak istediginiz mik yaziniz:"))
+    print("yatirilan miktar\t:\t",yatirilan_para,"{}".format("Euro"))
+    hesap += yatirilan_para
+    print("guncel bakiyeniz\t:\t", hesap,"{}".format("Euro"))
+
+elif islem == 3:
+    cekilen_para = 0
+    cekilen_para = int(input("lutfen cekmek istediginiz mik yaziniz:"))
+    if cekilen_para > 1000:
+        print("!!! UYARI !!! 1000 euro dan fazla cekemezsiniz....Lutfen tekrar deneyiniz")
+    elif cekilen_para < 1000:
+        print("Cekilen miktar\t\t:\t",cekilen_para,"{}".format("Euro"))
+        hesap -= cekilen_para
+        print("Guncel bakiyeniz\t:\t", hesap,"{}".format("Euro"))
