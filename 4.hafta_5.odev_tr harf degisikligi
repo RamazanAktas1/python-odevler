@@ -1,0 +1,66 @@
+print('b.')
+'''
+Futbolcular dosyasindaki futbolcu isimlerini yazdiginiz program ile 
+Türkçe karakter içermeyecek bir hale getirip yeni bir dosyaya kaydediniz.
+'''
+
+try:
+    with open('C:/Users/Gebruiker/Downloads/futbolcular.txt',
+              'r') as file:  # futbolcular.txt dosyamizi 'r' kipi ile actik
+        veri = file.read()  # dosya icini okuyup veri degiskenine atadik
+        kaynak = "şçöğüıŞÇÖĞÜİþýÝšŠèéð"  # kaynak dosyadaki harfleri belirledik
+        hedef = "scoguiSCOGUIsiIsSeeg"  # kaynak dosyadaki harflerin yenine kullanilacak harfleri belirledik
+        çeviri = str.maketrans(kaynak, hedef)  # str.maketrans() metodu ile cevirimizi olusturduk
+        yeni_liste = veri.translate(çeviri)  # translate() motodu ile ceviriyi kullanarak verimizi yeni degiskene atadik
+        with open('futbolcular_yeni_liste_2.txt', 'w', encoding='utf-8') as file_1:  # yeni dosyamizi actik
+            file_1.write(yeni_liste)  # olusturdugumuz yeni listeyi dosyamiza yazdirdik
+except FileNotFoundError:
+    print('kaynak dosya bulunamadi...lutfen kaynak dosyayi kontrol ediniz!!!')
+    
+# 2. yontem______________________________________________________________________________________________________________________
+
+try:
+    with open('C:/Users/Gebruiker/Downloads/futbolcular.txt',
+              'r') as file:       # futbolcular.txt dosyamizi 'r' kipi ile actik
+        veri = file.read()        # dosya icini okuyup veri degiskenine atadik
+        for i in veri:            # for donggusu ile veri icini harf harf kontrol ettik
+            if i == 'ş':
+                veri = veri.replace('ş', 's')  # if-elif ile beraber replace() metodu kullanilarak istenilen harf degisikliklerini yaptik
+            elif i == 'ç':
+                veri = veri.replace('ç', 'c')
+            elif i == 'ö':
+                veri = veri.replace('ö', 'o')
+            elif i == 'ğ':
+                veri = veri.replace('ğ', 'g')
+            elif i == 'ü':
+                veri = veri.replace('ü', 'u')
+            elif i == 'ı':
+                veri = veri.replace('ı', 'i')
+            elif i == 'Ç':
+                veri = veri.replace('Ç', 'c')
+            elif i == 'Ö':
+                veri = veri.replace('Ö', 'O')
+            elif i == 'Ğ':
+                veri = veri.replace('Ğ', 'G')
+            elif i == 'Ü':
+                veri = veri.replace('Ü', 'U')
+            elif i == 'İ':
+                veri = veri.replace('İ', 'I')
+            elif i == 'þ':
+                veri = veri.replace('þ', 's')
+            elif i == 'ý':
+                veri = veri.replace('ý', 'i')
+            elif i == 'Ý':
+                veri = veri.replace('Ý', 'I')
+            elif i == 'Þ':
+                veri = veri.replace('Þ', 'S')
+            elif i == 'ð':
+                veri = veri.replace('ð', 'g')
+            elif i == 'æ':
+                veri = veri.replace('æ', 'ae')
+
+            # elif fonk devam ettirebiliriz...baska degismesi gereken harf varsa eklenebilir
+    with open('yeni_futbolcular.txt', 'w', encoding='utf-8') as file1:  # dosyamizi actik
+        print(veri, file=file1)  # yeni verimizi dosyaya yazdirdik
+except FileNotFoundError:
+    print('kaynak dosya bulunamadi...lutfen kaynak dosyayi kontrol ediniz!!!')
