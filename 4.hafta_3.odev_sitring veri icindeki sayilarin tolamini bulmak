@@ -1,0 +1,16 @@
+print('b.')
+'''
+3-)Kullanicidan bir input aliniz. Girmis oldugu inputtaki rakamlarin toplamini veren bir program yaziniz.
+(Kullanici rakam girmek zorunda degil.farkli karakter girisi de yapabilir.)
+Örnek input = "art12kl4*"
+'''
+sayi_toplam=0                    #sayi toplami basta sifir olarak belirledik
+veri=input('veri giriniz\t:')    #kullnicidan veri girmesini sagladik
+try:
+    for i in veri:  # girilen verideki karekterlere for dongusu ile tek tek baktik
+        if i.isdigit():  # isdigit() metodu ile girilen veride sayi varsa kosul calisacak sayilari bulmus olacagiz
+            sayi_toplam += int(i)  # girilen degerler str() oldugundan int() donusturduk ve sayi degerlerini topladik
+            continue
+    print('\nGirmis oldugunuz verideki sayilarin toplami\t:',sayi_toplam)  # sayilarin tolamini ekrana yazdirdik
+except:
+    print('!!!HATA!!!...istenmeyen bir hata olustu girmis oldugunuz veriyi kontrol ediniz!!!')
