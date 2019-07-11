@@ -1,0 +1,34 @@
+print('b.')
+'''
+Kullanicidan bir input aliniz. Girmis oldugu inputta büyük harf sayisi, küçük harf sayisi,
+rakam sayisi ve bunlarin haricindeki özel karakter sayilarini veren bir program yaziniz.
+'''
+# ilk once kontrol etmek istedigimiz rakam,k_harf ve b_harf  baslangicta tanimladik
+rakamlar='1,2,3,4,5,6,7,8,9,0'
+k_harfler='a,b,c,ç,d,e,f,g,ğ,h,ı,i,j,k,l,m,n,o,ö,p,r,s,ş,t,u,ü,v,y,z'
+b_harfler='A,B,C,Ç,D,E,F,G,Ğ,H,I,I,J,K,L,M,N,O,Ö,P,R,S,Ş,T,U,Ü,V,Y,Z'
+
+data = input('enter data\t:')      # veri girisi istedik
+#karekter sayilari istenilen ifadelerin sayilarini baslangicta sifir olarak belirledik
+rakam_sayisi=0
+k_harf_sayisi=0
+b_harf_sayisi=0
+ozel_karekter_sayisi=0
+for i in data:           # for dongusu ile girilen veri icindeki karekterleri tek tek inceledik
+    if i in rakamlar:    # girilen veri icindeki rakamlari tespit ettik
+        rakam_sayisi+=1  # rakam sayisindaki artis ile toplam rakam sayisini bulduk
+        continue
+    elif i in k_harfler:    # kucuk harfleri kontrol ettik
+        k_harf_sayisi+=1
+        continue
+    elif i in b_harfler:    #buyuk harfleri kontrol ettik
+        b_harf_sayisi+=1
+        continue
+    else:                   # else ile rakam, k_harf,B_harf disinda girilen karekterleri kontrol ettik
+        ozel_karekter_sayisi+=1
+        continue
+#en son olarak veri icindeki rakam,K_harf,B_harf ve ozel karekterleri tesbit edip ekrana yazdirdik
+print('data icindeki rakam sayisi :',rakam_sayisi)
+print('data icindeki buyuk harf sayisi :',b_harf_sayisi)
+print('data icindeki kucuk harf sayisi :',k_harf_sayisi)
+print('data icindeki ozel karekter sayisi :',ozel_karekter_sayisi)
