@@ -1,0 +1,15 @@
+print('b.')
+'''
+Kullanicidan bir input aliniz. Input'taki küçük harfleri büyük harfe dönüstüren bir program yaziniz.
+Ör input: Hello World! 
+Ör output: HELLO WORLD!
+'''
+try:
+    data = input('lutfen harflerini buyuk yazdirmak istediginiz veriyi giriniz\t:')
+    if data.isalpha()==False:                        #girilen data nin haflerden olusup olusmadigini  kontrol ettik
+        print('lutfen harflerden olusan bir veri giriniz')  # haff disinda veri girisi varsa uyari msj verdik
+    else:                                            #girilen veri harflerden olusuyorsa bu fonksiyon calisacak
+        data = data.upper()                          #girilen veriyi upper() metodu ile buyuk harfe cevirdik
+        print('Girmis oldugunu veri :',data)         #ekrana yazdirdik
+except:
+    print('!!!HATA!!!...lutfet girmis oldugunuz veriyi kontrol ediniz!!!')
