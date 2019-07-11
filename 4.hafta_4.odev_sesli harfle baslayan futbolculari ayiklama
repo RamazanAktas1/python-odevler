@@ -1,0 +1,17 @@
+print('b.')
+'''
+Futbolcular dosyasindaki futbolculardan ismi sesli harf ile baslayanlari ayri bir dosyaya yazdiriniz.
+'''
+sesli_harfler = 'a,e,ı,i,o,ö,u,ü,A,E,I,O,U'  #sesli harfleri tanimladik
+try:
+    with open('C:/Users/Gebruiker/Downloads/futbolcular.txt', 'r') as file:  # futbolcular listemizi actik
+        veri = file.read().split('\n')  # read().split() ile dosyamizin icini satir satir okuduk ve veri degiskenine atadik
+        for i in veri:  # for dongusu ile veri degiskeni icindeki karekterleri tek tek kontrol ettik
+            if i[0] in sesli_harfler:  # ilk harfleri yukarida tanimladigimiz sesli harfler ile karsilastirdik
+                with open('sesli harfle baslayan futbolcular.txt', 'a', encoding='utf-8') as sesli_file:  # dosya actik
+                    print(i, file=sesli_file, end='\n')  # dosya icine yazdirdik
+            elif i[0] not in sesli_harfler:  # sesli harflerden farkli bir harfle baslayanlari bulduk
+                with open('sessiz harfle baslayan futbolcular.txt', 'a', encoding='utf-8') as sessiz_file:
+                    print(i, file=sessiz_file, end='\n')
+except FileNotFoundError:
+    print('kaynak dosya bulunamadi...lutfen kontrol ediniz!!!')
