@@ -1,0 +1,103 @@
+print('b.')
+'''surum_2'''
+'''
+SAYI TAHMIN OYUNU:*
+1-Kendiniz 4 basamakli, rakamlari birbirinden farkli ve icerisinde 0 rakaminin yer almadigi bir sayi belirleyin. 
+2-Kullanicidan bu sayiyi tahmin etmesini isteyin. 
+3-Yapilan tahmin sonucu kullanicinin, tahminde bulundugu sayidaki rakamlarin degeri ve yeri dogruysa +1,
+degeri dogru fakat yeri dogru degilse -1 ciktisi verecegiz. 
+4-Bu sekilde tahminde bulunmaya devam etmesi saglanacak ve sayiyi tam bir sekilde dogru bildiginde 
+gerekli bilgilendirme yapilip oyun bitirilecek.
+
+   Ornek:   sayi = 1234
+
+          yapilan tahmin = 9831
+
+          (Burada "9" ve "8" rakamlari yanlis oldugu icin ciktiya bir etkisi yok. 
+          "3" rakaminin yeri dogru oldugu icin +1, 
+          "1" rakami sayi icerisinde yer alan fakat yeri yanlis oldugu icin -1 ciktisi verecegiz.)
+
+          ornek output = +1 -1
+
+          yapilan tahmin = 2134
+
+          ("2" ve "1" rakamlari sayi icerisinde yer aldigi fakat yerlerinin yanlis olmasi nedeniyle ikisi icin -1, "3" ve "4" rakamlarinin yerleri de dogru oldugu icin +1 degerleri donecegiz.)
+
+          ornek output = +2 -2
+
+          yapilan tahmin = 9876
+
+          ornek output = +0 -0
+
+          yapilan tahmin = 2146
+
+          ornek output = +0 -3
+'''
+
+'''
+SAYI TAHMIN OYUNU:*
+1-Kendiniz 4 basamakli, rakamlari birbirinden farkli ve icerisinde 0 rakaminin yer almadigi bir sayi belirleyin. 
+2-Kullanicidan bu sayiyi tahmin etmesini isteyin. 
+3-Yapilan tahmin sonucu kullanicinin, tahminde bulundugu sayidaki rakamlarin degeri ve yeri dogruysa +1,
+degeri dogru fakat yeri dogru degilse -1 ciktisi verecegiz. 
+4-Bu sekilde tahminde bulunmaya devam etmesi saglanacak ve sayiyi tam bir sekilde dogru bildiginde 
+gerekli bilgilendirme yapilip oyun bitirilecek.
+'''
+print('''
+#################################
+# --->  SAYI TAHMIN OYUNU  <--- #
+#################################''')
+
+giris='''
+*********************************
+*    Oyun oynak icin   : (Y)    *
+*    cikis yapmak icin : (N)    *
+*********************************
+'''
+while True:
+    print(giris)
+    cvp=input('>>>....:').upper()     # upper() metodu ile kucuk harf girilmesini kontrol ettik
+    if cvp == 'Y':                    # cvp Y ise oyuna basladik
+        sayi=list('1453')             #rakamlari farkli bir sayi belirleyip listeye donusturduk
+        while True:
+            t_sayi = list(input('Rakamlari birbirinden farkli 4 basamakli sayiyi tahmin ediniz...\n>>>....:'))
+            if t_sayi.count(t_sayi[0]) > 1:
+                print("!!!.UYARI.!!!...rakamlari birbirinden farkli bir sayi giriniz")
+                continue
+            elif t_sayi.count(t_sayi[1]) > 1:
+                print("!!!.UYARI.!!!...rakamlari birbirinden farkli bir sayi giriniz")
+                continue
+            elif t_sayi.count(t_sayi[2]) > 1:
+                print("!!!.UYARI.!!!...rakamlari birbirinden farkli bir sayi giriniz")
+                continue
+            elif t_sayi.count(t_sayi[3]) > 1:
+                print("!!!.UYARI.!!!...rakamlari birbirinden farkli bir sayi giriniz")
+                continue
+            elif len(sayi) != len(t_sayi):    # 4 basamakli sayi girilmesini if ile kontrol ettik
+                print('~' * 45)
+                print('!!!>UYARI<!!!...4 basamakli bir sayi giriniz')
+                print('~' * 45)
+            else:
+                if t_sayi == sayi:                  # ilk once if ile dogru tahmin edilmis mi kontrol ettik
+                    print('...TEBRIKLER BILDINIZ....')   #sayi dogru bildiginizde tebrik msj
+                    break       # sayi dogru tahmin edilmisse break ile donguden cikildi
+                else:           # sayi dogru tahmin edilmediyse...
+                    yerDogru  = 0  # verilen  ipuclarini baslangicta sifir olarak aldik
+                    yerYanlis = 0  # verilen  ipuclarini baslangicta sifir olarak aldik
+                    for sayi_rakam in sayi:              #belirlenen sayinin rakamlarina for dongusu ile baktik
+                        sayi_yer = sayi.index(sayi_rakam)#belirlenen sayinin rakamlarinin tek tek index yerlerini bulduk
+                        for t_sayi_rakam in t_sayi:           # tahmin edilen sayinin rakamlarina for ile baktik
+                            t_sayi_yer = t_sayi.index(t_sayi_rakam) #tahmin edilen sayinin rakamlarinin tek tek index yerlerini bulduk
+                            if sayi_rakam == t_sayi_rakam and sayi_yer == t_sayi_yer: # rakamlar birbirine esit ve yerleride ayni ise
+                                yerDogru += 1
+                            elif sayi_rakam == t_sayi_rakam and sayi_yer != t_sayi_yer:  #rakamlar esit yerler farkli ise
+                                yerYanlis -= 1
+                    print('yapilan tahmin :', *t_sayi)          #yapilan tahmini yazdirdik
+                    print('output :', '[','+', yerDogru,']','[', yerYanlis,']') # sayi tahmini icin ipuclarini verdik
+    elif cvp=='N':
+        print('OYUNDAN CIKILIYOR....BYE!!!')
+        break
+    else:               # oyuna baslamak icin Y/N disinda bir deger girilirse uyari veriliyor
+        print('~' * 45)
+        print('!!!>UYARI<!!!...Lutfen Secim yapiniz:(Y) or (N)')
+        print('~' * 45)
