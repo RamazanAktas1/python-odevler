@@ -1,0 +1,166 @@
+print('b.')
+'''
+   ADAM ASMACA OYUNU
+  -Onceden belirlenmis bir kelime degiskene atanacak ve kullanicidan bu kelimeyi harf tahminleriyle bilmesi istenecek.
+  -Kullanicinin 6 hamle sansi olacak ve her bir yanlis hamlesinde kalan hamle sayisini gosterin. 
+    Ayrica yine her bir yanlis hamle sonucunda adam asmaca oyunu oynarken cizdigimiz yanlis hamle sonucundaki cizimleri 
+    sizde ekranda karakterleri kullanarak gosterin.
+  -Kullanici harf disinda bir karakter girdiginde gerekli uyariyi yapin ve bunu da yanlis hamle olarak saymayin. Oyun devam etsin.
+  -Bir yanlis ve bir dogru hamle yapilmis ornek kod ciktisi:
+
+                           ____
+                          |       |
+                          |      O           5 HAKKINIZ KALDI!!!
+                          |
+                          |
+                         ---
+
+           - a -  -  -  - a -
+
+          harf:
+'''
+print('''
+#################################
+# --->  ADAM ASMACA OYUNU  <--- #
+#################################''')
+
+# oncelikle adam asma oyununda kullanilacak sekilleri belirledik
+
+sekil1='''
+ _______
+ |     |
+ |     O
+ |    
+ |              5 hakkiniz kaldi   
+ |    
+ |
+_|__
+'''
+sekil2='''
+ _______
+ |     |
+ |     O
+ |    |         4 hakkiniz kaldi
+ |     
+ |    
+ |
+_|__
+'''
+sekil3='''
+ _______
+ |     |
+ |     O
+ |    | |      3 hakiniz kaldi
+ |     
+ |  
+ |
+_|__
+'''
+sekil4='''
+ _______
+ |     |
+ |     O
+ |    | |      2 hakkiniz kaldi
+ |     |
+ |    
+ |
+_|__
+'''
+sekil5='''
+ _______
+ |     |
+ |     O
+ |    | |      1 hakkiniz kaldi
+ |     |
+ |    |  
+ |
+_|__
+'''
+sekil6='''
+ _______
+ |     |
+ |     O
+ |    | |   !!! KAYBETTINIZ !!!
+ |     |
+ |    | |
+ |
+_|__
+'''
+
+giris='''
+*********************************
+*    Oyun oynak icin   : (Y)    *
+*    cikis yapmak icin : (N)    *
+*********************************'''
+while True:
+    print(giris)                #oyun icin giris cikis secenekleri veriyoruz
+    cvp= input('Oyun oynamak istiyormusunuz???..(Y/N)...').upper() # girilen harfi upper()metodu ilebuyuk harf yap
+    if cvp=='Y':                # cvp Y ise oyun basliyor
+        kelime=list('PYTHON')   # 6 harfli belirlenen kelime
+        hak=6                   # baslangicta 6 hak veriyoruz
+        dogru_harfler=[]        # dogru bilinen harfler icin bos liste olusturduk
+        girilen_harfler=[]      # girilen harfler icin bos bir liste olusturduk
+        tahmin_kelime=['-','-','-','-','-','-']   # tahmin harflerinden olusturulacak kelimeyi harf miktari kadar (-) ler ile belirledik
+        while hak!=0:           # hak sifirdan farkli oldugu surece donecek
+            print('~'*40)
+            tahmin_harf=input('bir harf giriniz:').upper()  # girilen harfleri upper() met. ile buyuk harfe cevirdik
+            print('~'*40)
+            girilen_harfler.append(tahmin_harf)     #girilen harfleri girilen harfler listesine ekledik
+            if tahmin_harf.isalpha():               # girilen ifadenin harf olup olmadiginin kontrolunu yaptik
+                for harf in kelime:                 # for ile tek tek belirlenen kelimenin harflerine baktik
+                    if tahmin_harf == harf:         # girilen harf kelime icinde bakilan harflerden birine esit ise
+                        kelime_yeri = kelime.index(tahmin_harf)  # tahmin harfinin kelimedeki index yerini bulduk
+                        tahmin_kelime[kelime_yeri] = tahmin_harf # tahmin edilen harfi tahmin kelimesine ayni index numarasi ile yazdirdik
+                        print('~' * 40)
+                        print(f'{hak} hakkiniz kaldi!!!')       # nekedar hakki kaldigini mjs verdik
+                        print('~' * 40)
+                        print('Kelimemiz...:\t', *tahmin_kelime) # tahmin harflerinden olusacak olan kelimeyi yazdirdik
+                        dogru_harfler.append(tahmin_harf)
+                        if kelime == dogru_harfler:                 # butun harflerin dogru bilinmesi durumunda
+                            print('TEBRIKLER KAZANDINIZ!!!')        # kazandiniz msj verdik
+                            break
+                        break
+                    elif tahmin_harf not in kelime:         # tahmin edilen harf kelime icinde yoksa
+                        hak -= 1                            # hak bir azaldi
+                        if hak == 5:                        # hak sayisina gore if-elif 'leri olusturduk
+                            print(sekil1)                   # 5 hakki olan sekil ciktisi
+                            print('Kullanilan harfler:', *girilen_harfler, sep='-')
+                            print('Kelimemiz...:\t', *tahmin_kelime)  # tahmin harflerinden olusacak olan kelimeyi yazdirdik
+                            break
+                        elif hak == 4:
+                            print(sekil2)                   # 4 hakki olan sekil ciktisi
+                            print('Kullanilan harfler:', *girilen_harfler, sep='-')
+                            print('Kelimemiz...:\t', *tahmin_kelime)
+                            break
+                        elif hak == 3:
+                            print(sekil3)                   # 3 hakki olan sekil ciktisi
+                            print('Kullanilan harfler:', *girilen_harfler, sep='-')
+                            print('Kelimemiz...:\t', *tahmin_kelime) # tahmin harflerinden olusacak olan kelimeyi yazdirdik
+                            break
+                        elif hak == 2:
+                            print(sekil4)                   # 2 hakki olan sekil ciktisi
+                            print('Kullanilan harfler:', *girilen_harfler, sep='-')
+                            print('Kelimemiz...:\t', *tahmin_kelime) # tahmin harflerinden olusacak olan kelimeyi yazdirdik
+                            break
+                        elif hak == 1:
+                            print(sekil5)                   # 1 hakki olan sekil ciktisi
+                            print('Kullanilan harfler:', *girilen_harfler, sep='-')
+                            print('Kelimemiz...:\t', *tahmin_kelime) # tahmin harflerinden olusacak olan kelimeyi yazdirdik
+                            break
+                        elif hak == 0:
+                            print(sekil6)                   # KAYBETTINIZ msj olan sekil
+                            print('Kullanilan harfler:', *girilen_harfler, sep='-')
+                            print('Kelimemiz...:\t', *tahmin_kelime) # tahmin harflerinden olusacak olan kelimeyi yazdirdik
+                            print('!!!...KAYBETTINIZ...!!!')
+                            break
+            else:
+                print('!!!...UYARI...lutfen harf giriniz!!!')       # harf disinda bir deger girince uyari msj
+                hak-=1                                              # harf disinda deger girerse hakki 1 eksiliyor
+                print('~' * 40)
+                print(f'{hak} hakkiniz kaldi!!!')                   # kac hakki kaldigini bilgi veriyoruz
+                print('~' * 40)
+    elif cvp=='N':
+        print('Oyundan cikiliyor....Bye!!!')                        # oyundan cikiliyor msj veriyoruz
+        break
+    else:                                      # giriste Y veya N disinda karekter girisi olusa uyari veriyoruz
+        print('Lutfen oyun oynamak icin dogru tercihleri yapiniz!!!...(Y/N)...')
